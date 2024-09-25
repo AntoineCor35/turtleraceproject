@@ -3,6 +3,7 @@ import axios from 'axios';
 import questionsData from '../data/questions.json'; // Importe les questions depuis le fichier JSON
 import LeaderBoard from './LeaderBoard';
 import RaceTrack from './RaceTrack';
+import '../styles/QuizzApp.css';
 
 function QuizApp() {
   const [level, setLevel] = useState(null); // Niveau de difficulté sélectionné
@@ -130,14 +131,14 @@ const shuffle = (array) => {
   return (
     <div className="QuizApp">
       {!quizStarted ? (
-        <div>
+        <div className='quiz'>
           <h1>Choisir la difficulté</h1>
-          <button onClick={() => startQuiz('easy')}>Facile</button>
-          <button onClick={() => startQuiz('medium')}>Moyen</button>
-          <button onClick={() => startQuiz('hard')}>Difficile</button>
+          <button className='btn' onClick={() => startQuiz('easy')}>Facile</button>
+          <button className='btn' onClick={() => startQuiz('medium')}>Moyen</button>
+          <button className='btn' onClick={() => startQuiz('hard')}>Difficile</button>
         </div>
       ) : quizFinished ? (
-        <div>
+        <div className='quiz'>
           <h1>Quiz terminé !</h1>
           <h2>Votre score : {score}</h2>
           <p>Temps écoulé : {timeElapsed} secondes</p>
@@ -145,15 +146,16 @@ const shuffle = (array) => {
           <button onClick={resetQuiz}>Recommencer</button>
         </div>
       ) : (
-        <div>
-          <h1>Quiz {level}</h1>
-          <h2>Temps écoulé : {timeElapsed} secondes</h2>
+        <div className='quiz'>
+          {/* <h1>Questions de culture générale !</h1> */}
+          
           <RaceTrack correctAnswers={correctAnswers} level={level} />
+          <h2>Temps écoulé: {timeElapsed} secondes</h2>
           {currentQuestion && (
-            <div>
-              <h3>{currentQuestion.question}</h3>
+            <div className='questionZone'>
+              <h3><span>{questionIndex+1}\</span>{currentQuestion.question}</h3>
               {shuffledAnswers.map((answer, index) => (
-                <button key={index} onClick={() => handleAnswerClick(answer)}>
+                <button className='btn' key={index} onClick={() => handleAnswerClick(answer)}>
                   {answer}
                 </button>
               ))}

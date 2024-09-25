@@ -1,7 +1,10 @@
+import logo from '../styles/visuals/logo.png'
+
 const Header = () => {
     return (
         <>
-        <h3>Welcome to turtle battle</h3>
+        <img src={logo} height={100} />
+        {/* <h3>Welcome to turtle battle</h3> */}
         </>
     )
 }

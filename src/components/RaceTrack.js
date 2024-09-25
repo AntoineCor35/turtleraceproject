@@ -26,8 +26,8 @@ const RaceTrack = ({ correctAnswers, level }) => {
  
   return (
 <>
-<h2>Hello racetrack</h2>
-<p>Nombre de bonnes réponses : {correctAnswers}</p>
+{/* <h2>Hello racetrack</h2> */}
+{/* <p>Nombre de bonnes réponses : {correctAnswers}</p> */}
 <p>Difficulté en cours : {level}</p>
 
     <div className="race-track-container">
