@@ -148,7 +148,7 @@ const shuffle = (array) => {
         <div>
           <h1>Quiz {level}</h1>
           <h2>Temps écoulé : {timeElapsed} secondes</h2>
-          <RaceTrack correctAnswers={correctAnswers} />
+          <RaceTrack correctAnswers={correctAnswers} level={level} />
           {currentQuestion && (
             <div>
               <h3>{currentQuestion.question}</h3>
