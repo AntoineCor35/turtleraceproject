@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios'; // Importer Axios
 
 function Register() {
   const [formData, setFormData] = useState({
@@ -11,9 +12,17 @@ function Register() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData); // Traitement du formulaire ici
+    try {
+      // Envoyer les données du formulaire à l'API
+      const response = await axios.post('http://127.0.0.1:8000/users/api/create', formData);
+      console.log('Inscription réussie :', response.data);
+      // Vous pouvez ajouter ici un message de succès ou rediriger l'utilisateur
+    } catch (error) {
+      console.error('Erreur lors de l\'inscription :', error);
+      // Vous pouvez ajouter ici un message d'erreur
+    }
   };
 
   return (

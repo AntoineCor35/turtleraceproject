@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import questionsData from '../data/questions.json'; // Importe les questions depuis le fichier JSON
 
 function QuizApp() {
@@ -12,6 +13,23 @@ function QuizApp() {
   const [questionIndex, setQuestionIndex] = useState(0); // Index des questions
   const [questions, setQuestions] = useState([]); // Liste des questions mélangées
   const [score, setScore] = useState(null); // Stocke le score
+  const [test, setTest] =useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchQuestions = async () => {
+        try {
+            const response = await axios.get('http://127.0.0.1:8000/api/questions'); // Lien vers votre API
+            setQuestions(response.data); // Mettre à jour l'état avec les données
+        } catch (err) {
+            setError(err); // Gérer l'erreur
+            console.error("Erreur lors de la récupération des questions:", err);
+        }
+    };
+    fetchQuestions();
+  }, []);
+
 
   const levelThreshold = {
     easy: 3,
@@ -106,8 +124,31 @@ const shuffle = (array) => {
     }
   }, [questionIndex, questions, quizStarted]);
 
+
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Erreur : {error.message}</div>;
+
+
   return (
     <div className="QuizApp">
+       <div>
+            <h1>Questions</h1>
+            <ul>
+                {questions.map((question) => (
+                    <li key={question.id}>
+                        <h2>{question.title}</h2>
+                        <p>{question.question}</p>
+                        <h3>Réponses :</h3>
+                        <ul>
+                            <li>Correct : {question.answers.correct}</li>
+                            <li>Faux 1 : {question.answers.false1}</li>
+                            <li>Faux 2 : {question.answers.false2}</li>
+                            <li>Faux 3 : {question.answers.false3}</li>
+                        </ul>
+                    </li>
+                ))}
+            </ul>
+        </div>
       {!quizStarted ? (
         <div>
           <h1>Choisir la difficulté</h1>
