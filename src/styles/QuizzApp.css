@@ -8,20 +8,38 @@ body{
     text-align: center;
     width: 50%;
 }
+
 button.btn{
+    margin: auto 1.75%;
+    font-size: 20px;
+    padding: 0.75%;
+}
+button.replayAgain{
+    margin: 0.5% auto;
+    font-size: 18px;
+    padding: 0.5%;
+}
+button.btnDifficulte{
+    padding: 0.5%;
+    margin: 0.5%;
+}
+button.btn, button.replayAgain, button.btnDifficulte{
     /* background-color: #AAE177; */
-    margin: auto 0.75%;
-    padding: 0.25%;
     border: 0;
     border-bottom: 1px solid black;
     box-shadow: 0px 0px 9px 0px #00000057;
     transition: 0.15s;
-    font-size: 20px;
+    
+}
+button.btn:hover, button.replayAgain:hover, button.btnDifficulte:hover{
+    cursor: pointer;
+    border-bottom: 3px solid #4d6932;
+}
+button.replayAgain:hover{
+    background-color: #598036;
 }
 button.btn:hover{
     background-color: #89bb5a;
-    cursor: pointer;
-    border-bottom: 3px solid #4d6932;
 }
 
 h3{

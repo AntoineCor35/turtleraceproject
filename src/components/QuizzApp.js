@@ -133,9 +133,9 @@ const shuffle = (array) => {
       {!quizStarted ? (
         <div className='quiz'>
           <h1>Choisir la difficulté</h1>
-          <button className='btn' onClick={() => startQuiz('easy')}>Facile</button>
-          <button className='btn' onClick={() => startQuiz('medium')}>Moyen</button>
-          <button className='btn' onClick={() => startQuiz('hard')}>Difficile</button>
+          <button className='btnDifficulte' onClick={() => startQuiz('easy')}>Facile</button>
+          <button className='btnDifficulte' onClick={() => startQuiz('medium')}>Moyen</button>
+          <button className='btnDifficulte' onClick={() => startQuiz('hard')}>Difficile</button>
         </div>
       ) : quizFinished ? (
         <div className='quiz'>
@@ -143,7 +143,7 @@ const shuffle = (array) => {
           <h2>Votre score : {score}</h2>
           <p>Temps écoulé : {timeElapsed} secondes</p>
           <LeaderBoard/>
-          <button onClick={resetQuiz}>Recommencer</button>
+          <button className='replayAgain' onClick={resetQuiz}>Recommencer</button>
         </div>
       ) : (
         <div className='quiz'>
@@ -151,6 +151,7 @@ const shuffle = (array) => {
           
           <RaceTrack correctAnswers={correctAnswers} level={level} />
           <h2>Temps écoulé: {timeElapsed} secondes</h2>
+          <h2>Bonnes réponses : {correctAnswers}</h2>
           {currentQuestion && (
             <div className='questionZone'>
               <h3><span>{questionIndex+1}\</span>{currentQuestion.question}</h3>
@@ -161,7 +162,7 @@ const shuffle = (array) => {
               ))}
             </div>
           )}
-          <p>Bonnes réponses : {correctAnswers}</p>
+          
         </div>
       )}
     </div>
