@@ -1,0 +1,36 @@
+.header{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+img.logo{
+    margin: 2.5%;
+}
+.link{
+    margin: auto;
+    width: 50%;
+}
+button.btn{
+    padding: 0.5%;
+    font-weight: bold;
+    margin: auto;
+    color: black;
+    text-decoration: none;
+    border: 0;
+    border-bottom: 2px solid black;
+    transition: 0.15s;
+    font-size: 20px;
+    height: 50px;
+    width: 50%;
+}
+button.btn.mon_compte{
+    background-color: #aae177;
+}
+button.btn.logout{
+    background-color: #f0a1a1;
+}
+button.btn.mon_compte:hover{
+    background-color: #93c267;
+}
+button.btn.logout:hover{
+    background-color: #f08080;
+}
