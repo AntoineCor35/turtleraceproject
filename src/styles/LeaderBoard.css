@@ -1,7 +1,20 @@
 table.tableScore{
     width: 100%;
-    border: 0;
+    border-collapse: collapse;
+}
+.tableScore thead th{
+    border: 1px solid black;
+}
+.tableScore thead tr{
+    background-color: #AAE177;
+}
+.tableScore tbody{
+    border: 1px solid black;
+}
+.tableScore tbody tr{
+    border: 1px solid rgba(0, 0, 0, 0.336);
 }
 .tableScore tr td{
-    width: 50%;
+    width: 33%;
+    padding: 0.5%;
 }

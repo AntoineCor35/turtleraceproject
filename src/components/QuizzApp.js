@@ -142,7 +142,7 @@ const shuffle = (array) => {
           <h1>Bravo, vous avez terminé le quiz !</h1>
           <h2 className='endMessage'>Vous avez réalisé un score de <span>{score} points</span> pour une durée de <span>{timeElapsed} secondes</span> !</h2>
           {/* <p>Temps écoulé : </p> */}
-          <LeaderBoard/>
+          <LeaderBoard level={level} />
           <button className='replayAgain' onClick={resetQuiz}>Recommencer</button>
         </div>
       ) : (

@@ -1,12 +1,12 @@
 [
-    {"username": "Alice", "score": 85},
-    {"username": "Bob", "score": 90 },
-    {"username": "Charlie", "score": 78},
-    {"username": "David", "score": 92},
-    {"username": "Eve","score": 88},
-    {"username": "Frank", "score": 74},
-    {"username": "Grace","score": 81},
-    {"username": "Hannah", "score": 95},
-    {"username": "Ivan", "score": 69},
-    {"username": "Judy", "score": 87}
+    {"username": "Alice", "score": 85, "difficulty": "easy"},
+    {"username": "Bob", "score": 90, "difficulty": "medium" },
+    {"username": "Charlie", "score": 78, "difficulty": "hard"},
+    {"username": "David", "score": 92, "difficulty": "easy"},
+    {"username": "Eve","score": 88, "difficulty": "medium" },
+    {"username": "Frank", "score": 74, "difficulty": "hard"},
+    {"username": "Grace","score": 81, "difficulty": "easy"},
+    {"username": "Hannah", "score": 95, "difficulty": "medium" },
+    {"username": "Ivan", "score": 69, "difficulty": "hard"},
+    {"username": "Judy", "score": 87, "difficulty": "easy"}
 ]
