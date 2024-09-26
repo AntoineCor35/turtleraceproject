@@ -35,11 +35,8 @@ const Account = () => {
   // Filtrer les scores pour l'utilisateur actuel par `user_id`
   const userScores = scores.filter(score => score.user_id === user.id);
 
-  console.log(scores)
-
   // Séparer les scores par difficulté
   const easyScores = userScores.filter(score => score.difficulty.toLowerCase() === 'easy');
-  console.log(userScores)
   const mediumScores = userScores.filter(score => score.difficulty.toLowerCase() === 'medium');
   const hardScores = userScores.filter(score => score.difficulty.toLowerCase() === 'hard');
 
@@ -54,7 +51,6 @@ const Account = () => {
         <thead>
           <tr>
             <th>Score</th>
-            <th>Difficulté</th>
           </tr>
         </thead>
         <tbody>
@@ -62,7 +58,6 @@ const Account = () => {
             easyScores.map((entry, index) => (
               <tr key={index}>
                 <td>{entry.score}</td>
-                <td>{entry.difficulty}</td>
               </tr>
             ))
           ) : (
@@ -78,7 +73,6 @@ const Account = () => {
         <thead>
           <tr>
             <th>Score</th>
-            <th>Difficulté</th>
           </tr>
         </thead>
         <tbody>
@@ -86,7 +80,6 @@ const Account = () => {
             mediumScores.map((entry, index) => (
               <tr key={index}>
                 <td>{entry.score}</td>
-                <td>{entry.difficulty}</td>
               </tr>
             ))
           ) : (
@@ -102,7 +95,6 @@ const Account = () => {
         <thead>
           <tr>
             <th>Score</th>
-            <th>Difficulté</th>
           </tr>
         </thead>
         <tbody>
@@ -110,7 +102,6 @@ const Account = () => {
             hardScores.map((entry, index) => (
               <tr key={index}>
                 <td>{entry.score}</td>
-                <td>{entry.difficulty}</td>
               </tr>
             ))
           ) : (

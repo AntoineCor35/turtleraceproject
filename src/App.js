@@ -3,6 +3,8 @@ import { Route, createBrowserRouter, RouterProvider, createRoutesFromElements } 
 import Root from './components/Root';
 import Home from './components/Home';
 import Account from './components/Account'; // Import de la page de compte
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 function App() {
   const router = createBrowserRouter(

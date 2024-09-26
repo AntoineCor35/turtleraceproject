@@ -25,7 +25,6 @@ const SignIn = () => {
       const { status, user, message } = response.data;
 
       if (status === 'success') {
-        console.log("Utilisateur connecté : ", user);
         handleUserState(user); // Mettre à jour l'état utilisateur dans Root
       } else {
         setError('Erreur de connexion: ' + message);
