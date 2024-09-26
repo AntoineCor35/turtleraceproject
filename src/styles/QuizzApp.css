@@ -12,6 +12,13 @@ body{
     width: 50%;
     margin: auto;
 }
+.quiz h1{
+    transition: 0.15s;
+    cursor: pointer;
+}
+.quiz h1:hover{
+    color: rgb(36, 36, 36);
+}
 .quiz.finished h1{
     text-align: center;
 }
@@ -24,6 +31,13 @@ body{
 .questionZone{
     text-align: center;
     width: 50%;
+}
+
+@media screen and (max-width: 1300px) {
+    .questionZone{
+        text-align: center;
+        width: 100%;
+    }
 }
 
 button.btnAnswer{

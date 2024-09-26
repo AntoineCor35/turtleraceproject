@@ -32,4 +32,13 @@
     height: 100px;
     transition: left 0.5s ease-in-out; /* Smooth transition when the turtle moves */
 }
-  
+ 
+@media screen and (max-width: 1000px) {
+    .turtle{
+        height: 40px;
+    }
+    .race-track-container {
+        width: 100%;
+        height: 150px;
+    }
+}

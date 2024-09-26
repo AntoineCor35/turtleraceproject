@@ -79,8 +79,8 @@ function Register() {
             </option>
           ))}
         </select>
-        <button type="submit" className="button">
-          S'inscrire
+        <button type="submit" className="login-button">
+          S'inscrire<span className="arrow">➔</span>
         </button>
       </form>
     </div>
