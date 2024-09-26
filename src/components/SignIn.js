@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import '../styles/SignIn.css'; // Assurez-vous de lier ce fichier CSS
+import { useOutletContext } from 'react-router-dom'; // Utilisation du contexte pour obtenir handleUserState
+import '../styles/SignIn.css';
 
-const SignIn = ({userState}) => {
+const SignIn = () => {
+  const { handleUserState } = useOutletContext(); // Récupération de handleUserState depuis Root
   const [formData, setFormData] = useState({
     mail: '',
     password: ''
@@ -20,11 +22,14 @@ const SignIn = ({userState}) => {
     e.preventDefault();
     try {
       const response = await axios.post('http://127.0.0.1:8000/api/login', formData);
-      console.log('Login successful:', response.data);
+      const { status, user, message } = response.data;
 
-        localStorage.setItem('user', JSON.stringify(response.data)); // Stocke dans localStorage
-        userState(JSON.parse(localStorage.getItem('user')))// Récupère l'utilisateur depuis localStorage
-      
+      if (status === 'success') {
+        console.log("Utilisateur connecté : ", user);
+        handleUserState(user); // Mettre à jour l'état utilisateur dans Root
+      } else {
+        setError('Erreur de connexion: ' + message);
+      }
     } catch (err) {
       setError('Erreur de connexion, veuillez vérifier vos identifiants.');
       console.error('Erreur lors de la connexion:', err);
