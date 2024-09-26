@@ -93,12 +93,32 @@ const shuffle = (array) => {
   };
 
   // Calculer le score basé sur le temps écoulé
-  const calculateScore = () => {
+  const calculateScore = async () => {
     const finalScore = Math.max(10000 - 10 * timeElapsed, 0); // Évite un score négatif
     setScore(finalScore);
-    setQuizFinished(true); // Marquer le quiz comme terminé
+  
+    // Envoyer le score au backend
+    try {
+      const user = JSON.parse(localStorage.getItem('user')); // Parse l'objet JSON
+      const user_id = user?.user?.id; // Accède à l'ID de l'utilisateur
+  
+      if (user_id) {
+        const response = await axios.post('http://127.0.0.1:8000/api/add_scores', {
+          user_id: user_id, // Inclure l'user_id
+          score: finalScore,
+          difficulty: level
+        });
+        console.log('Score envoyé avec succès:', response.data);
+        setQuizFinished(true); // Marquer le quiz comme terminé
+      } else {
+        console.error("User ID non trouvé");
+      }
+    } catch (error) {
+      console.error('Erreur lors de l\'envoi du score:', error);
+    }
   };
-
+  
+  
   // Charger la question suivante
   const nextQuestion = () => {
     if (questionIndex < questions.length - 1) {

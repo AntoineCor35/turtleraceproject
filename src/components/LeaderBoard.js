@@ -5,7 +5,7 @@ import '../styles/LeaderBoard.css'
 
 const LeaderBoard = () => {
 
-    const [test, setTest] =useState(null);
+    const [scores, setScores] =useState(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
     const [difficulty] = useState('hard');
@@ -14,7 +14,7 @@ const LeaderBoard = () => {
         const fetchScores = async () => {
             try {
                 const response = await axios.get('http://127.0.0.1:8000/api/scores'); // Lien vers votre API
-                setTest(response.data); // Mettre à jour l'état avec les données
+                setScores(response.data); // Mettre à jour l'état avec les données
             } catch (err) {
                 setError(err); // Gérer l'erreur
                 console.error("Erreur lors de la récupération des questions:", err);
