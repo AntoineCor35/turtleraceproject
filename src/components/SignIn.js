@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import '../styles/SignIn.css'; // Assurez-vous de lier ce fichier CSS
 
-const SignIn = () => {
+const SignIn = ({userState}) => {
   const [formData, setFormData] = useState({
     mail: '',
     password: ''
@@ -21,7 +21,10 @@ const SignIn = () => {
     try {
       const response = await axios.post('http://127.0.0.1:8000/api/login', formData);
       console.log('Login successful:', response.data);
-      // Gérer la réponse de succès ici
+
+        localStorage.setItem('user', JSON.stringify(response.data)); // Stocke dans localStorage
+        userState(JSON.parse(localStorage.getItem('user')))// Récupère l'utilisateur depuis localStorage
+      
     } catch (err) {
       setError('Erreur de connexion, veuillez vérifier vos identifiants.');
       console.error('Erreur lors de la connexion:', err);
