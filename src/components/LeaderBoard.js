@@ -1,67 +1,64 @@
 import React, { useState, useEffect } from 'react';
-import scoreUser from '../data/scores.json';
 import axios from 'axios';
-import '../styles/LeaderBoard.css'
+import '../styles/LeaderBoard.css';
 
 const LeaderBoard = () => {
+  const [scores, setScores] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const [difficulty] = useState('easy'); // Choisir la difficulté (tu peux le changer ici)
+  const [filteredAndSortedData, setFilteredAndSortedData] = useState([]);
 
-    const [scores, setScores] =useState(null);
-    const [loading, setLoading] = useState(false);
-    const [error, setError] = useState(null);
-    const [difficulty] = useState('hard');
+  useEffect(() => {
+    const fetchScores = async () => {
+      setLoading(true); // Démarrer le chargement
+      try {
+        const response = await axios.get('http://127.0.0.1:8000/api/scores'); // Appel API pour récupérer les scores
+        const fetchedScores = response.data;
+        
+        // Filtrer et trier les scores, en gérant la casse pour la difficulté
+        const filteredAndSorted = fetchedScores
+          .filter(user => user.difficulty.toLowerCase() === difficulty.toLowerCase()) // Normaliser la casse
+          .sort((a, b) => b.score - a.score) // Trier par score décroissant
+          .slice(0, 10); // Limiter à 10 résultats
 
-    useEffect(() => {
-        const fetchScores = async () => {
-            try {
-                const response = await axios.get('http://127.0.0.1:8000/api/scores'); // Lien vers votre API
-                setScores(response.data); // Mettre à jour l'état avec les données
-            } catch (err) {
-                setError(err); // Gérer l'erreur
-                console.error("Erreur lors de la récupération des questions:", err);
-            }
-        };
-        fetchScores();
-      }, []);
+        setScores(fetchedScores); // Mettre à jour l'état des scores
+        setFilteredAndSortedData(filteredAndSorted); // Mettre à jour les données filtrées et triées
+      } catch (err) {
+        setError(err); // Gérer l'erreur
+        console.error("Erreur lors de la récupération des scores :", err);
+      } finally {
+        setLoading(false); // Fin du chargement
+      }
+    };
+    fetchScores();
+  }, [difficulty]);
 
-        // Trier les données par score décroissant lors de l'initialisation
-        const [sortedData, setSortedData] = useState(
-            [...scoreUser].sort((a, b) => b.score - a.score)
-        );
+  // Gestion de l'affichage si chargement ou erreur
+  if (loading) return <p>Chargement des scores...</p>;
+  if (error) return <p>Erreur lors du chargement des scores : {error.message}</p>;
 
-        // Fonction pour trier par nom
-        const sortByName = () => {
-            const sorted = [...sortedData].sort((a, b) => a.username.localeCompare(b.username));  // Tri alphabétique
-            setSortedData(sorted);
-        };
-
-
-        // Filtrer les données par difficulté et trier par score décroissant
-        const filteredAndSortedData = scoreUser
-        .filter(user => user.difficulty === difficulty)  // Filtrer par difficulté
-        .sort((a, b) => b.score - a.score);  // Trier par score décroissant
-
-      return (
-        <div>
-            <h2>Les Scores</h2>
-
-                <table border="1" className='tableScore'>
-                    <thead>
-                        <tr>
-                            <th>Username</th>
-                            <th>Score</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {filteredAndSortedData.map((entry, index) => (
-                            <tr key={index}>
-                                <td>{entry.username}</td>
-                                <td>{entry.score}</td>
-                            </tr>
-                        ))}
-                    </tbody>
-                </table>
-        </div>
-    )
-}
+  return (
+    <div>
+      <h2>Les Scores</h2>
+      <table border="1" className='tableScore'>
+        <thead>
+          <tr>
+            <th>Username</th>
+            <th>Score</th>
+          </tr>
+        </thead>
+        <tbody>
+          {filteredAndSortedData.map((entry, index) => (
+            <tr key={index}>
+              <td>{entry.user}</td> {/* Utilise `entry.user` pour le nom */}
+              <td>{entry.score}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+};
 
 export default LeaderBoard;

@@ -1,11 +1,12 @@
-import { Outlet } from 'react-router-dom';
+import { Outlet, useNavigate } from 'react-router-dom'; // Import de useNavigate pour la redirection
 import { useState, useEffect } from 'react';
 import Header from './Header';
 import Footer from './Footer';
 
 const Root = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [loading, setLoading] = useState(true); // Gérer le chargement initial
+  const [loading, setLoading] = useState(true);
+  const navigate = useNavigate(); // Initialisation de useNavigate
 
   // Fonction pour mettre à jour l'état d'authentification après connexion
   const handleUserState = (newUser) => {
@@ -17,17 +18,17 @@ const Root = () => {
 
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem('user'));
-    console.log("Utilisateur trouvé dans le localStorage : ", user);
-    
     if (user) {
-      setIsAuthenticated(true); // Si un utilisateur est trouvé, mettre à jour l'état
+      setIsAuthenticated(true);
     }
-    setLoading(false); // On arrête le chargement après avoir vérifié le localStorage
+    setLoading(false);
   }, []);
 
+  // Fonction de déconnexion avec redirection
   const handleLogout = () => {
     localStorage.removeItem('user');
     setIsAuthenticated(false);
+    navigate('/'); // Redirige vers la page d'accueil ou une autre page
   };
 
   // Pendant le chargement, on peut afficher un message ou un écran de chargement
@@ -35,13 +36,11 @@ const Root = () => {
     return <div>Chargement...</div>;
   }
 
-  console.log("isAuthenticated dans Root : ", isAuthenticated);
-
   return (
     <>
       <Header isAuthenticated={isAuthenticated} onLogout={handleLogout} />
       <main className="main">
-        {/* Passer handleUserState à Outlet pour que SignIn puisse l'utiliser */}
+        {/* Passer handleUserState à Outlet pour que SignIn et Register puissent l'utiliser */}
         <Outlet context={{ isAuthenticated, handleUserState }} />
       </main>
       <Footer />

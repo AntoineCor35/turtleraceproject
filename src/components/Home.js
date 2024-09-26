@@ -13,8 +13,6 @@ function Home() {
     setShowSignIn(!showSignIn); // Basculer entre les deux formulaires
   };
 
-  console.log("isAuthenticated dans Home : ", isAuthenticated);
-
   return (
     <div className="HomePage">
       {!isAuthenticated ? (
