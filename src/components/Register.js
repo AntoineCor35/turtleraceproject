@@ -1,12 +1,24 @@
 import React, { useState } from 'react';
-import axios from 'axios'; // Importer Axios
+import axios from 'axios'; 
+import '../styles/Register.css';
 
 function Register() {
   const [formData, setFormData] = useState({
-    username: '',
-    email: '',
+    name: '',        // Utilise "name" pour correspondre au champ d'utilisateur
+    mail: '',        // Utilise "mail" pour l'email
     password: '',
+    turtles_id: '',  // Utilise "turtles_id" pour l'ID de la tortue
   });
+
+  // Liste des tortues avec leur ID
+  const turtles = [
+    { id: 1, name: 'Leonardo' },
+    { id: 2, name: 'Michel-Angelo' },
+    { id: 3, name: 'Donatello' },
+    { id: 4, name: 'Raphaël' },
+    { id: 5, name: 'Franklin' },
+    { id: 6, name: 'Vroom' },
+  ];
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -26,24 +38,24 @@ function Register() {
   };
 
   return (
-    <div style={styles.container}>
-      <form onSubmit={handleSubmit} style={styles.form}>
-        <h2 style={styles.title}>Inscription</h2>
+    <div className='container'>
+      <form onSubmit={handleSubmit} className="form">
+        <h2 className='title'>Inscription</h2>
         <input
           type="text"
-          name="username"
+          name="name" // Utilise "name" pour correspondre au formData
           placeholder="Nom d'utilisateur"
-          value={formData.username}
+          value={formData.name}
           onChange={handleChange}
-          style={styles.input}
+          className='input'
         />
         <input
           type="email"
-          name="email"
+          name="mail" // Utilise "mail" pour correspondre au formData
           placeholder="Adresse mail"
-          value={formData.email}
+          value={formData.mail}
           onChange={handleChange}
-          style={styles.input}
+          className='input'
         />
         <input
           type="password"
@@ -51,58 +63,28 @@ function Register() {
           placeholder="Mot de passe"
           value={formData.password}
           onChange={handleChange}
-          style={styles.input}
+          className='input'
         />
-        <button type="submit" style={styles.button}>
+        <select
+          name="turtles_id" // Utilise "turtles_id" pour correspondre au formData
+          value={formData.turtles_id}
+          onChange={handleChange} // Utilise handleChange directement pour simplifier
+          className='input'
+          required
+        >
+          <option value="">Choisissez votre tortue</option>
+          {turtles.map((turtle) => (
+            <option key={turtle.id} value={turtle.id}>
+              {turtle.name}
+            </option>
+          ))}
+        </select>
+        <button type="submit" className="button">
           S'inscrire
         </button>
       </form>
     </div>
   );
 }
-
-const styles = {
-  container: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    height: '100vh',
-    backgroundColor: '#fdf4e9',
-  },
-  form: {
-    backgroundColor: '#fbf7b4',
-    padding: '20px',
-    borderRadius: '10px',
-    boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    width: '300px',
-  },
-  title: {
-    marginBottom: '20px',
-    color: '#000',
-  },
-  input: {
-    marginBottom: '15px',
-    padding: '10px',
-    borderRadius: '5px',
-    border: 'none',
-    width: '100%',
-    backgroundColor: '#fff',
-    fontSize: '16px',
-  },
-  button: {
-    backgroundColor: '#c9ed74',
-    color: '#000',
-    padding: '10px 20px',
-    border: 'none',
-    borderRadius: '5px',
-    cursor: 'pointer',
-    width: '100%',
-    fontSize: '16px',
-    fontWeight: 'bold',
-  },
-};
 
 export default Register;

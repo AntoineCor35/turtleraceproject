@@ -22,7 +22,7 @@
     color: #000;
   }
   
-  input {
+  input, select {
     margin-bottom: 15px;
     padding: 10px;
     border-radius: 5px;
