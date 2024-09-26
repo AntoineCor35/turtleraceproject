@@ -8,7 +8,7 @@ const LeaderBoard = () => {
     const [test, setTest] =useState(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
-    const [difficulty] = useState({level});
+    const [difficulty] = useState('hard');
 
     useEffect(() => {
         const fetchScores = async () => {

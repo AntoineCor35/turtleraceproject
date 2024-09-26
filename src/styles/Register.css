@@ -32,7 +32,7 @@
     font-size: 16px;
   }
   
-  button {
+  button.button {
     background-color: #c9ed74;
     color: #000;
     padding: 10px 20px;
