@@ -2,6 +2,7 @@ import QuizzApp from "./QuizzApp";
 import React, { useState } from 'react';
 import SignIn from "./SignIn"; // Import du composant SignIn
 import Register from "./Register"; // Import du composant Register
+import '../styles/Home.css';
 
 function Home() {
   const [isAuthenticated, setIsAuthenticated] = useState(false); // État pour suivre l'authentification
@@ -25,23 +26,24 @@ function Home() {
   return (
     <div className="HomePage">
       {!isAuthenticated ? (
-        <div>
-          <h1>Bienvenue sur la plateforme Quiz</h1>
+        <div className="home">
+          <h1>Bienvenue sur la plateforme TurtlezFast</h1>
           <p>Veuillez {showSignIn ? "vous connecter" : "créer un compte"} pour accéder au quiz.</p>
 
-          {showSignIn ? <SignIn /> : <Register />} {/* Affiche SignIn ou Register */}
-
-          <button onClick={toggleForm}>
+          <button className="login" onClick={toggleForm}>
             {showSignIn ? "Créer un compte" : "Se connecter"}
           </button>
 
-          <button onClick={handleLogin}>
+          <button className="login" onClick={handleLogin}>
             {showSignIn ? "Se connecter" : "Créer un compte"} {/* Action principale */}
           </button>
+          
+          {showSignIn ? <SignIn /> : <Register />} {/* Affiche SignIn ou Register */}
+
         </div>
       ) : (
         <div>
-          <button onClick={handleLogout}>Se déconnecter</button>
+          <button className="logout" onClick={handleLogout}>Se déconnecter</button>
           <QuizzApp /> {/* Affiche le composant QuizApp si l'utilisateur est connecté */}
         </div>
       )}

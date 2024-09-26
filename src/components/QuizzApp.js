@@ -138,10 +138,10 @@ const shuffle = (array) => {
           <button className='btnDifficulte' onClick={() => startQuiz('hard')}>Difficile</button>
         </div>
       ) : quizFinished ? (
-        <div className='quiz'>
-          <h1>Quiz terminé !</h1>
-          <h2>Votre score : {score}</h2>
-          <p>Temps écoulé : {timeElapsed} secondes</p>
+        <div className='quiz finished'>
+          <h1>Bravo, vous avez terminé le quiz !</h1>
+          <h2 className='endMessage'>Vous avez réalisé un score de <span>{score} points</span> pour une durée de <span>{timeElapsed} secondes</span> !</h2>
+          {/* <p>Temps écoulé : </p> */}
           <LeaderBoard/>
           <button className='replayAgain' onClick={resetQuiz}>Recommencer</button>
         </div>
@@ -156,7 +156,7 @@ const shuffle = (array) => {
             <div className='questionZone'>
               <h3><span>{questionIndex+1}\</span>{currentQuestion.question}</h3>
               {shuffledAnswers.map((answer, index) => (
-                <button className='btn' key={index} onClick={() => handleAnswerClick(answer)}>
+                <button className='btnAnswer' key={index} onClick={() => handleAnswerClick(answer)}>
                   {answer}
                 </button>
               ))}

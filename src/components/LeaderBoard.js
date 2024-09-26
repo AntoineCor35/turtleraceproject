@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import scoreUser from '../data/scores.json';
 import axios from 'axios';
+import '../styles/LeaderBoard.css'
 
 const LeaderBoard = () => {
 
@@ -20,7 +22,27 @@ const LeaderBoard = () => {
         fetchScores();
       }, []);
 
-      return (<h2>Les Scores</h2>)
+      return (
+        <div>
+            <h2>Les Scores</h2>
+            <table border="1" className='tableScore'>
+                <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>Score</th>
+                </tr>
+                </thead>
+                <tbody>
+                {scoreUser.map((entry, index) => (
+                    <tr key={index}>
+                    <td>{entry.username}</td>
+                    <td>{entry.score}</td>
+                    </tr>
+                ))}
+                </tbody>
+            </table>
+        </div>
+    )
 }
 
 export default LeaderBoard;

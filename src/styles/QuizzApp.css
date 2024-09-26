@@ -4,42 +4,79 @@ body{
 .quiz{
     margin: 1%;
 }
+.quiz.finished{
+    background-color: #fff7c5;
+    box-shadow: 0px 0px 9px 0px #0000001e;
+    border-radius: 15px;
+    padding: 1%;
+    width: 50%;
+    margin: auto;
+}
+.quiz.finished h1{
+    text-align: center;
+}
+.quiz.finished h2.endMessage{
+    font-weight: normal;
+}
+.quiz.finished h2 span{
+    font-weight: bold;
+}
 .questionZone{
     text-align: center;
     width: 50%;
 }
 
-button.btn{
+button.btnAnswer{
     margin: auto 1.75%;
-    font-size: 20px;
     padding: 0.75%;
 }
 button.replayAgain{
     margin: 0.5% auto;
-    font-size: 18px;
     padding: 0.5%;
 }
 button.btnDifficulte{
     padding: 0.5%;
     margin: 0.5%;
 }
-button.btn, button.replayAgain, button.btnDifficulte{
-    /* background-color: #AAE177; */
-    border: 0;
-    border-bottom: 1px solid black;
-    box-shadow: 0px 0px 9px 0px #00000057;
-    transition: 0.15s;
-    
+button.logout{
+    padding: 0.5%;
+    margin: 0 0 0 1.5%;
+    background-color: #f0a1a1;
+    font-weight: bold;
 }
-button.btn:hover, button.replayAgain:hover, button.btnDifficulte:hover{
+button.btnAnswer, button.replayAgain, button.btnDifficulte, button.logout{
+    border: 0;
+    border-bottom: 2.5px solid black;
+    /* box-shadow: 0px 0px 9px 0px #00000057; */
+    transition: 0.15s;
+    font-size: 20px;    
+}
+button.btnDifficulte{
+    background-color: #AAE177; 
+}
+button.btnAnswer{
+    background-color: #d6e177;
+}
+button.replayAgain{
+    background: none;
+}
+button.btnAnswer:hover, button.replayAgain:hover, button.btnDifficulte:hover, button.logout:hover{
     cursor: pointer;
-    border-bottom: 3px solid #4d6932;
+    border-bottom: 1px solid #3f5826;
 }
 button.replayAgain:hover{
-    background-color: #598036;
+    border-bottom: 2.5px solid black;
+    box-shadow: 0px 0px 16px 0px rgba(0,0,0,0.28);
 }
-button.btn:hover{
+button.btnAnswer:hover{
+    background-color: #d6e177;
+}
+button.btnDifficulte:hover{
     background-color: #89bb5a;
+    border-bottom: 1px solid #3f5826;
+}
+button.logout:hover{
+    background-color: #f08080;
 }
 
 h3{

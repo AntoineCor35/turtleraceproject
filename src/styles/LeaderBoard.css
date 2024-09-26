@@ -1,0 +1,7 @@
+table.tableScore{
+    width: 100%;
+    border: 0;
+}
+.tableScore tr td{
+    width: 50%;
+}

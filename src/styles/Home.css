@@ -1,0 +1,18 @@
+button.login{
+    border: 0;
+    border-bottom: 2px solid black;
+    transition: 0.15s border-bottom;
+    cursor: pointer;
+    padding: 0.5%;
+    background-color: #AAE177;
+    margin: 0 1% 0 0;
+    font-size: 18px;  
+    font-weight: bold;
+}
+button.login:hover{
+    cursor: pointer;
+    border-bottom: 1px solid black;
+}
+.home{
+    padding: 0 1.5%;
+}
