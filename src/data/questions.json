@@ -198,7 +198,117 @@
 {"id":"193","title":"Histoire","question":"Qui a découvert l’Amérique en 1492 ?","answer":"Christophe Colomb","false_answer1":"Ferdinand Magellan","false_answer2":"Vasco de Gama","false_answer3":"Hernán Cortés","created_at":"2024-09-24 16:00:11","updated_at":"2024-09-24 16:00:11"},
 {"id":"194","title":"Histoire","question":"Quel mouvement a mené à l’abolition de l’esclavage aux États-Unis ?","answer":"Mouvement abolitionniste","false_answer1":"Mouvement des droits civiques","false_answer2":"Mouvement de suffrage féminin","false_answer3":"Mouvement des droits des travailleurs","created_at":"2024-09-24 16:00:11","updated_at":"2024-09-24 16:00:11"},
 {"id":"195","title":"Histoire","question":"Quelle était la capitale de l’Empire byzantin ?","answer":"Constantinople","false_answer1":"Rome","false_answer2":"Athènes","false_answer3":"Antioche","created_at":"2024-09-24 16:00:11","updated_at":"2024-09-24 16:00:11"},
-{"id":"196","title":"Histoire","question":"Quel était le nom du roi de France pendant la Révolution française ?","answer":"Louis XVI","false_answer1":"Louis XIV","false_answer2":"Louis XV","false_answer3":"François Ier","created_at":"2024-09-24 16:00:11","updated_at":"2024-09-24 16:00:11"}
+{"id":"196","title":"Histoire","question":"Quel était le nom du roi de France pendant la Révolution française ?","answer":"Louis XVI","false_answer1":"Louis XIV","false_answer2":"Louis XV","false_answer3":"François Ier","created_at":"2024-09-24 16:00:11","updated_at":"2024-09-24 16:00:11"},
+{
+    "id": "197",
+    "title": "Geek",
+    "question": "Quel est le nom du créateur de la série télévisée Star Trek ?",
+    "answer": "Gene Roddenberry",
+    "false_answer1": "George Lucas",
+    "false_answer2": "Steven Spielberg",
+    "false_answer3": "J.J. Abrams",
+    "created_at": "2024-09-24 16:00:11",
+    "updated_at": "2024-09-24 16:00:11"
+  },
+  {
+    "id": "198",
+    "title": "Geek",
+    "question": "Quel est le matériau qui compose le bouclier de Captain America ?",
+    "answer": "Vibranium",
+    "false_answer1": "Adamantium",
+    "false_answer2": "Titane",
+    "false_answer3": "Acier",
+    "created_at": "2024-09-24 16:00:11",
+    "updated_at": "2024-09-24 16:00:11"
+  },
+  {
+    "id": "199",
+    "title": "Histoire",
+    "question": "Quel empereur romain a fait construire le Colisée ?",
+    "answer": "Vespasien",
+    "false_answer1": "Néron",
+    "false_answer2": "Augustus",
+    "false_answer3": "Trajan",
+    "created_at": "2024-09-24 16:00:11",
+    "updated_at": "2024-09-24 16:00:11"
+  },
+  {
+    "id": "200",
+    "title": "Histoire",
+    "question": "En quelle année a eu lieu la chute du mur de Berlin ?",
+    "answer": "1989",
+    "false_answer1": "1991",
+    "false_answer2": "1979",
+    "false_answer3": "1993",
+    "created_at": "2024-09-24 16:00:11",
+    "updated_at": "2024-09-24 16:00:11"
+  },
+  {
+    "id": "201",
+    "title": "Géographie",
+    "question": "Quelle est la capitale de la Suisse ?",
+    "answer": "Berne",
+    "false_answer1": "Zurich",
+    "false_answer2": "Genève",
+    "false_answer3": "Lausanne",
+    "created_at": "2024-09-24 16:00:11",
+    "updated_at": "2024-09-24 16:00:11"
+  },
+  {
+    "id": "202",
+    "title": "Géographie",
+    "question": "Quel est le plus grand pays d’Amérique du Sud ?",
+    "answer": "Brésil",
+    "false_answer1": "Argentine",
+    "false_answer2": "Chili",
+    "false_answer3": "Colombie",
+    "created_at": "2024-09-24 16:00:11",
+    "updated_at": "2024-09-24 16:00:11"
+  },
+  {
+    "id": "203",
+    "title": "Musique",
+    "question": "Quel chanteur est surnommé le \"Boss\" ?",
+    "answer": "Bruce Springsteen",
+    "false_answer1": "Elton John",
+    "false_answer2": "Paul McCartney",
+    "false_answer3": "Billy Joel",
+    "created_at": "2024-09-24 16:00:11",
+    "updated_at": "2024-09-24 16:00:11"
+  },
+  {
+    "id": "204",
+    "title": "Musique",
+    "question": "Qui a composé la célèbre \"Symphonie n°9\" ?",
+    "answer": "Ludwig van Beethoven",
+    "false_answer1": "Wolfgang Amadeus Mozart",
+    "false_answer2": "Johann Sebastian Bach",
+    "false_answer3": "Franz Schubert",
+    "created_at": "2024-09-24 16:00:11",
+    "updated_at": "2024-09-24 16:00:11"
+  },
+  {
+    "id": "205",
+    "title": "Sport",
+    "question": "Quel joueur de basketball est surnommé \"King James\" ?",
+    "answer": "LeBron James",
+    "false_answer1": "Michael Jordan",
+    "false_answer2": "Kobe Bryant",
+    "false_answer3": "Shaquille O'Neal",
+    "created_at": "2024-09-24 16:00:11",
+    "updated_at": "2024-09-24 16:00:11"
+  },
+  {
+    "id": "206",
+    "title": "Sport",
+    "question": "Quelle nation a remporté la Coupe du Monde de rugby en 2015 ?",
+    "answer": "Nouvelle-Zélande",
+    "false_answer1": "Australie",
+    "false_answer2": "Angleterre",
+    "false_answer3": "Afrique du Sud",
+    "created_at": "2024-09-24 16:00:11",
+    "updated_at": "2024-09-24 16:00:11"
+  }
 ]
 }
 ]

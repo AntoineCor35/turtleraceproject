@@ -28,18 +28,38 @@ body{
 .quiz.finished h2 span{
     font-weight: bold;
 }
+.quiz{
+    position: relative;
+}
+.quiz.difficulte{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+}
+.quiz.difficulte button{
+    margin: 2%;
+    padding: 1%;
+}
+.quiz.difficulte button.moyen{
+    background-color: #ffb870;
+}
+.quiz.difficulte button.difficile{
+    background-color: #f0a1a1;
+}
 .questionZone{
     text-align: center;
     width: 50%;
 }
-
+ 
 @media screen and (max-width: 1300px) {
     .questionZone{
         text-align: center;
         width: 100%;
     }
 }
-
+ 
 button.btnAnswer{
     margin: auto 1.75%;
     padding: 0.75%;
@@ -66,7 +86,7 @@ button.btnAnswer, button.replayAgain, button.btnDifficulte{
     font-size: 20px;    
 }
 button.btnDifficulte{
-    background-color: #AAE177; 
+    background-color: #AAE177;
 }
 button.btnAnswer{
     background-color: #d6e177;
@@ -93,7 +113,7 @@ button.btnDifficulte:hover{
 /* button.logout:hover{
     background-color: #f08080;
 } */
-
+ 
 h3{
     border: 0;
     width: 100%;
@@ -105,7 +125,7 @@ h3{
     transition: 0.3s ease-in-out;
     background-color: #89bb5a62;
 } */
-
+ 
 img{
     margin: 1%;
 }

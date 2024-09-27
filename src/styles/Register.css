@@ -3,9 +3,9 @@
     justify-content: center;
     align-items: center;
     height: 50vh;
-    background-color: #FFF9EC;
+    /* background-color: #FFF9EC; */
 }
-  
+ 
 .form {
     background-color: #fbf7b4;
     padding: 20px;
@@ -16,12 +16,12 @@
     align-items: center;
     width: 300px;
 }
-  
+ 
 .title {
     margin-bottom: 20px;
     color: #000;
 }
-  
+ 
 input, select {
     margin-bottom: 15px;
     padding: 10px;
@@ -31,7 +31,10 @@ input, select {
     background-color: #fff;
     font-size: 16px;
 }
-  
+.input{
+    margin: 4%;
+}
+ 
 .login-button {
     width: 100%;
     padding: 12px;
@@ -45,4 +48,4 @@ input, select {
     justify-content: center;
     align-items: center;
 }
-  
+ 

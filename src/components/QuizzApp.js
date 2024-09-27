@@ -33,6 +33,9 @@ function QuizApp() {
     fetchQuestions();
   }, []);
 
+
+  console.log(test);
+
   const levelThreshold = {
     easy: 3,
     medium: 5,
@@ -137,11 +140,11 @@ function QuizApp() {
   return (
     <div className="QuizApp">
       {!quizStarted ? (
-        <div className='quiz'>
-          <h1>Choisir la difficulté</h1>
-          <button className='btnDifficulte' onClick={() => startQuiz('easy')}>Facile</button>
-          <button className='btnDifficulte' onClick={() => startQuiz('medium')}>Moyen</button>
-          <button className='btnDifficulte' onClick={() => startQuiz('hard')}>Difficile</button>
+        <div className='quiz difficulte'>
+          <h1>Choisissez la difficulté</h1>
+          <button className='btnDifficulte facile' onClick={() => startQuiz('easy')}>Facile</button>
+          <button className='btnDifficulte moyen' onClick={() => startQuiz('medium')}>Moyen</button>
+          <button className='btnDifficulte difficile' onClick={() => startQuiz('hard')}>Difficile</button>
         </div>
       ) : quizFinished ? (
         <div className='quiz finished'>
