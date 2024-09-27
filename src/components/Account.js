@@ -1,10 +1,38 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
+// Import des images de tortues
+import turtle1 from '../styles/visuals/turtle1.png';
+import turtle2 from '../styles/visuals/turtle2.png';
+import turtle3 from '../styles/visuals/turtle3.png';
+import turtle4 from '../styles/visuals/turtle4.png';
+import turtle5 from '../styles/visuals/turtle5.png';
+import turtle6 from '../styles/visuals/turtle6.png';
+
 const Account = () => {
   const [user, setUser] = useState(null);
   const [scores, setScores] = useState([]);
   const [error, setError] = useState(null);
+
+  // Fonction pour récupérer l'image correspondant à turtles_id
+  const getTurtleImage = (turtles_id) => {
+    switch (turtles_id) {
+      case 1:
+        return turtle1;
+      case 2:
+        return turtle2;
+      case 3:
+        return turtle3;
+      case 4:
+        return turtle4;
+      case 5:
+        return turtle5;
+      case 6:
+        return turtle6;
+      default:
+        return turtle1; // Image par défaut
+    }
+  };
 
   useEffect(() => {
     const storedUser = JSON.parse(localStorage.getItem('user')); // Récupère les infos utilisateur depuis le localStorage
@@ -44,7 +72,12 @@ const Account = () => {
     <div>
       <h2>Bienvenue {user.name} !</h2>
       <p>Email : {user.mail}</p>
-      <p>ID de la tortue : {user.turtles_id}</p>
+      
+      {/* Affichage de l'image de la tortue */}
+      <div>
+        <p>Votre tortue :</p>
+        <img src={getTurtleImage(user.turtles_id)} alt="Turtle" style={{ width: '150px', height: '150px' }} />
+      </div>
 
       <h3>Scores - Facile</h3>
       <table border="1" className='tableScore'>

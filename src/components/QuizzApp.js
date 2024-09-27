@@ -33,9 +33,6 @@ function QuizApp() {
     fetchQuestions();
   }, []);
 
-
-  console.log(test);
-
   const levelThreshold = {
     easy: 3,
     medium: 5,
